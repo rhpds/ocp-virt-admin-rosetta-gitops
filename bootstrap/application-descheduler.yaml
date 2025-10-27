@@ -10,16 +10,16 @@ spec:
     repoURL: https://github.com/rhpds/ocp-virt-admin-rosetta-gitops.git
     targetRevision: main
     path: "descheduler"
-    helm:
-      values: |
-        user:
-          count: {{ .Values.user.count }}
-          base: {{ .Values.user.base }}
-        deployer:
-          domain: {{ .Values.deployer.domain }}
-          apiUrl: {{ .Values.deployer.apiUrl }}
+    # helm:
+    #   values: |
+    #     user:
+    #       count: {{ .Values.user.count }}
+    #       base: {{ .Values.user.base }}
+    #     deployer:
+    #       domain: {{ .Values.deployer.domain }}
+    #       apiUrl: {{ .Values.deployer.apiUrl }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ $app.destination.namespace }}
+    namespace: openshift-kube-descheduler-operator
   syncPolicy:
     automated: {}
