@@ -25,4 +25,7 @@ spec:
     namespace: openshift-kube-descheduler-operator
   syncPolicy:
     automated:
-      enabled: true
+      enabled: false
+    syncOptions:
+      - CreateNamespace=true
+      - SkipDryRunOnMissingResource=true

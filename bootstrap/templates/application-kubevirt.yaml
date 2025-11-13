@@ -25,7 +25,7 @@ spec:
     namespace: openshift-cnv
   syncPolicy:
     automated:
-      enabled: true
+      enabled: false
     syncOptions:
       - CreateNamespace=true
       - SkipDryRunOnMissingResource=true
