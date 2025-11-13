@@ -1,0 +1,31 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: migration-toolkit-contianers
+  namespace: openshift-gitops
+  labels:
+    demo.redhat.com/application: ""
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/rhpds/ocp-virt-admin-rosetta-gitops.git
+    targetRevision: {{ .Values.targetRevision }}
+    path: "infra/migration-toolkit-contianers"
+    # helm:
+    #   values: |
+    #     user:
+    #       count: {{ .Values.user.count }}
+    #       base: {{ .Values.user.base }}
+    #     deployer:
+    #       domain: {{ .Values.deployer.domain }}
+    #       apiUrl: {{ .Values.deployer.apiUrl }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openshift-migration
+  syncPolicy:
+    automated:
+      enabled: false
+    syncOptions:
+      - CreateNamespace=true
+      - SkipDryRunOnMissingResource=true
