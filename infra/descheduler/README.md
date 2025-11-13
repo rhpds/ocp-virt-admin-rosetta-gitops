@@ -1,4 +1,4 @@
-# datavolumes - create datavolumes on demand
+# descheduler - create descheduler
 
 This repository contains a Helm chart
 
@@ -6,7 +6,7 @@ This repository contains a Helm chart
 
 When used with an ArgoCD Application, this Helm chart provides the following functionalities:
 
-1. **Creates DataVolumes and Populates them with a qcow2 image**
+1. **Creates Descheduler Operator**
 
 ## Usage
 
