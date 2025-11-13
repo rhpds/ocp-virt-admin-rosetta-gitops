@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/rhpds/ocp-virt-admin-rosetta-gitops.git
-    targetRevision: dev
+    targetRevision: {{ .Values.targetRevision }}
     path: "infra/descheduler"
     # helm:
     #   values: |
