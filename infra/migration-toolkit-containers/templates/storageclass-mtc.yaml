@@ -18,7 +18,7 @@ parameters:
   imageFeatures: layering,deep-flatten,exclusive-lock,object-map,fast-diff
   imageFormat: "2"
   pool: ocpv-tenants
-  volumeNamePrefix: openshift-cluster-{{ guid }}-
+  volumeNamePrefix: openshift-cluster-{{ .Vlues.guid }}-
 provisioner: openshift-storage.rbd.csi.ceph.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
