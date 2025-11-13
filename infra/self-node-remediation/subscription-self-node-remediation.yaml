@@ -11,4 +11,4 @@ spec:
   name: self-node-remediation
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: self-node-remediation.v0.10.0
+#  startingCSV: self-node-remediation.v0.10.0
