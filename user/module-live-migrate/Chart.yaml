@@ -1,6 +1,6 @@
 apiVersion: v2
-name: module-hotplug
-description: Create per-user resources for Module "Hotplug"
+name: module-live-migrate
+description: Create per-user resources for Module "Live Migration"
 
 # A chart can be either an 'application' or a 'library' chart.
 #

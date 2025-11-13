@@ -1,4 +1,4 @@
-# module-live-migration
+# module-live-migrate
 
 This repository contains a Helm chart
 

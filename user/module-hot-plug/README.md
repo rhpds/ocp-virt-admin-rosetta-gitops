@@ -1,4 +1,4 @@
-# module-vm-fencing
+# module-hot-plug
 
 This repository contains a Helm chart
 
