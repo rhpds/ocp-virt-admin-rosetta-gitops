@@ -25,7 +25,7 @@ spec:
     namespace: openshift-migration
   syncPolicy:
     automated:
-      enabled: false
+      enabled: {{ .Values.syncPolicy.automated.enabled }}
     syncOptions:
       - CreateNamespace=true
       - SkipDryRunOnMissingResource=true

@@ -11,3 +11,6 @@ user:
   base: user
 
 targetRevision: dev
+syncPolicy:
+  automated:
+    enabled: true
