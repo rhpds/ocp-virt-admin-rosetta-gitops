@@ -5,11 +5,11 @@ metadata:
   name: kubevirt-hyperconverged
   namespace: openshift-cnv
 spec:
-{{- if $ocp4_workload_openshift_virtualization_workload_tolerations }}
+{{- if .Values.ocp4_workload_openshift_virtualization_workload_tolerations }}
   workloads:
     nodePlacement:
       tolerations:
-        {{ $ocp4_workload_openshift_virtualization_workload_tolerations }}
+        {{ .Values.ocp4_workload_openshift_virtualization_workload_tolerations }}
 {{- end }}
   enableCommonBootImageImport: {{ ternary "true" "false" (not .Values.external_ceph) }}
   virtualMachineOptions:
