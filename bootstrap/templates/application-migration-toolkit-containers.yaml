@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/rhpds/ocp-virt-admin-rosetta-gitops.git
     targetRevision: {{ .Values.targetRevision }}
-    path: "infra/migration-toolkit-contianers"
+    path: "infra/migration-toolkit-containers"
     # helm:
     #   values: |
     #     user:
