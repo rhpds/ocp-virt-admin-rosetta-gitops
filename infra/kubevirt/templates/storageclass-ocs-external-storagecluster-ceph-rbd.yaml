@@ -15,7 +15,7 @@ parameters:
   csi.storage.k8s.io/controller-expand-secret-name: rook-csi-rbd-provisioner
   imageFormat: '2'
   clusterID: openshift-storage
-  volumeNamePrefix: openshift-cluster-{{ guid }}-
+  volumeNamePrefix: openshift-cluster-{{ .Values.guid }}-
   imageFeatures: 'layering,deep-flatten,exclusive-lock,object-map,fast-diff'
   csi.storage.k8s.io/controller-expand-secret-namespace: openshift-storage
   pool: ocpv-tenants
