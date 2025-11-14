@@ -31,4 +31,4 @@ spec:
       - SkipDryRunOnMissingResource=true
     managedNamespaceMetadata:
       labels:
-        openshift.io/cluster-monitoring: true
+        openshift.io/cluster-monitoring: "true"
