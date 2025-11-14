@@ -29,3 +29,6 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - SkipDryRunOnMissingResource=true
+    managedNamespaceMetadata:
+      labels:
+        openshift.io/cluster-monitoring: true
