@@ -54,3 +54,4 @@ spec:
           echo "######################"
 
           oc patch HyperConverged/kubevirt-hyperconverged -n openshift-cnv --type=merge -p '{"spec":{"enableCommonBootImageImport": true}}'
+          # end with newline
