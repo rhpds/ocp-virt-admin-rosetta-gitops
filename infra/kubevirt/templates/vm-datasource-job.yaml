@@ -50,8 +50,7 @@ spec:
           oc patch StorageProfile/ocs-external-storagecluster-ceph-rbd --type=merge -p '{"spec":{"dataImportCronSourceFormat": "pvc"}}'
 
           echo "######################"
-          echo "# Patch the hyperconvered to import boot srouces using PVCs
+          echo "# Patch the hyperconvered to import boot srouces using PVCs"
           echo "######################"
 
           oc patch HyperConverged/kubevirt-hyperconverged -n openshift-cnv --type=merge -p '{"spec":{"enableCommonBootImageImport": true}}'
-          # end with newline
