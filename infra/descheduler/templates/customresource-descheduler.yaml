@@ -2,24 +2,21 @@
 apiVersion: operator.openshift.io/v1
 kind: KubeDescheduler
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "3"
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: cluster
   namespace: openshift-kube-descheduler-operator
 spec:
-  managementState: Managed
-  deschedulingIntervalSeconds: 30
-  mode: "Automatic"
-  # # remove settings from the dev releases
-  # profiles:
-  # - DevKubeVirtRelieveAndMigrate
-  # profileCustomizations:
-  #   devEnableSoftTainter: true
-  #   devEnableEvictionsInBackground: true
-  #   devDeviationThresholds: AsymmetricLow
-  #   devActualUtilizationProfile: PrometheusCPUCombined
-  #   namespaces:
-  #     included:
-  #     - webapp-vms
-  #     - mass-vms
+  logLevel: Normal
+  mode: Predictive
+  operatorLogLevel: Normal
+  profileCustomizations:
+    devEnableSoftTainter: true
+    devDeviationThresholds: AsymmetricLow
+    devActualUtilizationProfile: PrometheusCPUCombined
+    namespaces:
+      included:
+        - dynamic-schedule
+  profiles:
+    - KubeVirtRelieveAndMigrate 
+  # This is the interval at which the descheduler will run ; Set a lower value for testing purposes :
+  deschedulingIntervalSeconds: 3600 
+  managementState: Managed     
