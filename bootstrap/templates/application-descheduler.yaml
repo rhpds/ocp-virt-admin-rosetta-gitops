@@ -38,3 +38,9 @@ spec:
         duration: 5s    # Initial wait time
         factor: 2       # Multiply wait time by this factor each fail (5s, 10s, 20s...)
         maxDuration: 3m # Cap the wait time at 3 minutes
+  ignoreDifferences:
+  - group: "operator.openshift.io"
+    kind: "KubeDescheduler"
+    jsonPointers:
+    - /spec/mode
+    - /spec/deschedulingIntervalSeconds
