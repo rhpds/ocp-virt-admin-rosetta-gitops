@@ -4,6 +4,9 @@ kind: KubeDescheduler
 metadata:
   name: cluster
   namespace: openshift-kube-descheduler-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   logLevel: Normal
   mode: Predictive
@@ -16,7 +19,7 @@ spec:
       included:
         - dynamic-schedule
   profiles:
-    - KubeVirtRelieveAndMigrate 
+    - KubeVirtRelieveAndMigrate
   # This is the interval at which the descheduler will run ; Set a lower value for testing purposes :
-  deschedulingIntervalSeconds: 3600 
-  managementState: Managed     
+  deschedulingIntervalSeconds: 3600
+  managementState: Managed
