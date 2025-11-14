@@ -29,6 +29,9 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - SkipDryRunOnMissingResource=true
+    managedNamespaceMetadata:
+      labels:
+        openshift.io/cluster-monitoring: "true"
     retry:
       limit: 5         # Max number of retry attempts
       backoff:
