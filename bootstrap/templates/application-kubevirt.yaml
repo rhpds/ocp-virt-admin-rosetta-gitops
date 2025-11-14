@@ -29,3 +29,8 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - SkipDryRunOnMissingResource=true
+  ignoreDifferences:
+  - group: "hco.kubevirt.io"
+    kind: "HyperConverged"
+    jsonPointers:
+    - /spec/enableCommonBootImageImport
