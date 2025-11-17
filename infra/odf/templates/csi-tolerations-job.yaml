@@ -45,12 +45,7 @@ spec:
         - -c
         - |
           echo "######################"
-          echo "# Patch the storage profile to use PVC instead of snapshot"
-          echo "######################"
-          #oc patch StorageProfile/ocs-external-storagecluster-ceph-rbd --type=merge -p '{"spec":{"dataImportCronSourceFormat": "pvc"}}'
-
-          echo "######################"
-          echo "# Patch the hyperconvered to import boot srouces using PVCs"
+          echo "# Patch the storage cluster with tolerations
           echo "######################"
 
-          #oc patch HyperConverged/kubevirt-hyperconverged -n openshift-cnv --type=merge -p '{"spec":{"enableCommonBootImageImport": true}}'
+          oc patch --type=merge StorageCluster ocs-external-storagecluster -p '{"spec":{"placement":{"csi-plugin":{"tolerations":[{"effect":"NoExecute","key":"node.kubernetes.io/out-of-service","operator":"Equal","value":"nodeshutdown"},{"effect":"NoExecute","key":"medik8s.io/remediation","operator":"Equal","value":"self-node-remediation"}]}}}}'
