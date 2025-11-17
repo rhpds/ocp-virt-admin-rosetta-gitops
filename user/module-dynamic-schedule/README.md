@@ -15,3 +15,5 @@ When used with an ArgoCD Application, this Helm chart provides the following fun
 
 - **ArgoCD**: Make sure you have ArgoCD installed and configured in your OpenShift cluster.
 
+
+

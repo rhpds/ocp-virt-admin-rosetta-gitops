@@ -7,6 +7,7 @@ This repository contains a Helm chart
 When used with an ArgoCD Application, this Helm chart provides the following functionalities:
 
 * Creates VMs
+** fencing-vm1
 
 ## Usage
 

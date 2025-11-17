@@ -36,4 +36,3 @@ spec:
       jsonPointers:
         - /spec/replicas
         - /spec/template/spec/nodeSelector
-
