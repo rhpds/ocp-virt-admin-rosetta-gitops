@@ -6,3 +6,5 @@ metadata:
   namespace: openshift-mtv
 spec:
   upgradeStrategy: Default
+    targetNamespaces:
+    - openshift-mtv
