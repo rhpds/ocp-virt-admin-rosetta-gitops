@@ -45,7 +45,9 @@ spec:
         - -c
         - |
           echo "######################"
-          echo "# Patch the storage cluster with tolerations"
+          echo "# Patch the Driver with tolerations"
           echo "######################"
 
-          oc patch -n openshift-storage --type=merge StorageCluster ocs-external-storagecluster -p '{"spec":{"placement":{"csi-plugin":{"tolerations":[{"effect":"NoExecute","key":"node.kubernetes.io/out-of-service","operator":"Equal","value":"nodeshutdown"},{"effect":"NoExecute","key":"medik8s.io/remediation","operator":"Equal","value":"self-node-remediation"}]}}}}'
+          oc patch -n openshift-storage \
+          --type=merge Driver openshift-storage.rbd.csi.ceph.com \
+          -p '{"spec":{"nodePlugin":{"tolerations":[{"effect":"NoExecute","key":"node.kubernetes.io/out-of-service","operator":"Equal","value":"nodeshutdown"},{"effect":"NoExecute","key":"medik8s.io/remediation","operator":"Equal","value":"self-node-remediation"}]}}}'
