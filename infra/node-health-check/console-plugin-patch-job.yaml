@@ -39,7 +39,7 @@ spec:
       serviceAccountName: console-plugin-patch-job
       containers:
       - name: console-plugin-patch-job
-        image: registry.redhat.io/openshift4/ose-tools-rhel9:latest
+        image: image-registry.openshift-image-registry.svc:5000/openshift/cli
         command:
         - /bin/sh
         - -c
@@ -48,9 +48,9 @@ spec:
           echo "# Patch the console operator with node-remediation-console-plugin"
           echo "######################"
 
-          NEEDED_PLUGIN=node-remediation-console-plugin
+          PLUGIN="node-remediation-console-plugin"
           oc patch console.operator.openshift.io cluster \
           --type=json \
-          -p "[{\"op\": \"replace\", \"path\": \"/spec/plugins\", \"value\": $(oc get console.operator.openshift.io cluster -o jsonpath='{.spec.plugins}' | jq --arg plugin "$NEEDED_PLUGIN" 'if any(. == $plugin) then . else . + [$plugin] end')}]"
+          -p "[{\"op\": \"replace\", \"path\": \"/spec/plugins\", \"value\": $(oc get console.operator.openshift.io cluster -o go-template='{{$newPlugin := "'$PLUGIN'"}}{{$exists := false}}{{range .spec.plugins}}{{if eq . $newPlugin}}{{$exists = true}}{{end}}{{end}}[{{range $i, $p := .spec.plugins}}{{if $i}},{{end}}"{{$p}}"{{end}}{{if not $exists}}{{if .spec.plugins}},{{end}}"{{$newPlugin}}"{{end}}]')}]"
           
 ## This is needed because node-remediation-console-plugin is not enabled by default. Existing RFE to enable it at the subscription level : https://issues.redhat.com/browse/RFE-6264
