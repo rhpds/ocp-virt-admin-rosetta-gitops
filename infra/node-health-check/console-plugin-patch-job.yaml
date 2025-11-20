@@ -39,7 +39,7 @@ spec:
       serviceAccountName: console-plugin-patch-job
       containers:
       - name: console-plugin-patch-job
-        image: image-registry.openshift-image-registry.svc:5000/openshift/cli
+        image: registry.redhat.io/openshift4/ose-tools-rhel9:latest
         command:
         - /bin/sh
         - -c

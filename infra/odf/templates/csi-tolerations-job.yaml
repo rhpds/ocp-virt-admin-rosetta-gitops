@@ -39,7 +39,7 @@ spec:
       serviceAccountName: csi-tolersions-job
       containers:
       - name: csi-tolersions-job
-        image: registry.redhat.io/openshift4/ose-tools-rhel9:latest
+        image: image-registry.openshift-image-registry.svc:5000/openshift/cli
         command:
         - /bin/sh
         - -c
