@@ -42,7 +42,7 @@ spec:
       architecture: amd64
       domain:
         cpu:
-          cores: 24
+          cores: 16
           sockets: 2
           threads: 1
         devices:
