@@ -32,7 +32,7 @@ spec:
         resources:
           requests:
             storage: 30Gi
-  runStrategy: RerunOnFailure
+  runStrategy: Manual # was RerunOnFailure
   template:
     metadata:
       annotations:

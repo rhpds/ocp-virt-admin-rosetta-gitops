@@ -24,7 +24,7 @@ spec:
     name: u1.small
   preference:
     name: rhel.10
-  runStrategy: Always
+  runStrategy: Manual
   template:
     metadata:
       labels:
@@ -56,6 +56,3 @@ spec:
               password: redhat
               user: rhel
           name: cloudinitdisk
-
-
-
