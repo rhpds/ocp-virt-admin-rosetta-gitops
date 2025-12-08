@@ -13,7 +13,7 @@ kind: ClusterRoleBinding
 metadata:
   name: scheduler-patch-job
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "-5"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -30,7 +30,7 @@ metadata:
   name: scheduler-patch-job
   namespace: default
   annotations:
-    argocd.argoproj.io/sync-wave: "3"
+    argocd.argoproj.io/sync-wave: "-5"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   template:
