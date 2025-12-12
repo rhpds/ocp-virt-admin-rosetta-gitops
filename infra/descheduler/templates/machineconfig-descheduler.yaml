@@ -3,7 +3,7 @@ apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfig
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "-3"
+    argocd.argoproj.io/sync-wave: "12"
   labels:
     machineconfiguration.openshift.io/role: worker
   namespace: openshift-machine-config-operator
