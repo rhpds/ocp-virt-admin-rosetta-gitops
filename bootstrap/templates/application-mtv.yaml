@@ -26,6 +26,8 @@ spec:
   syncPolicy:
     automated:
       enabled: {{ .Values.syncPolicy.automated.enabled }}
+    retry:
+      limit: 10
     syncOptions:
       - CreateNamespace=true
       - SkipDryRunOnMissingResource=true
