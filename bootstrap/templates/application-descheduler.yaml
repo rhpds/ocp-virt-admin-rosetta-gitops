@@ -34,7 +34,7 @@ spec:
       labels:
         openshift.io/cluster-monitoring: "true"
     retry:
-      limit: 5         # Max number of retry attempts
+      limit: 10         # Max number of retry attempts
       backoff:
         duration: 5s    # Initial wait time
         factor: 2       # Multiply wait time by this factor each fail (5s, 10s, 20s...)
