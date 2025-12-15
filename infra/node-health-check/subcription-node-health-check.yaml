@@ -11,4 +11,4 @@ spec:
   name: node-healthcheck-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: node-healthcheck-operator.v0.10.0
+  #startingCSV: node-healthcheck-operator.v0.10.0
