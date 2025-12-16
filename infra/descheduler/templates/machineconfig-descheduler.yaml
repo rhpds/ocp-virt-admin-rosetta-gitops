@@ -1,3 +1,4 @@
+{{- if .Values.descheduler.enable_machineconfig -}}
 ---
 apiVersion: machineconfiguration.openshift.io/v1
 kind: MachineConfig
@@ -11,3 +12,4 @@ metadata:
 spec:
   kernelArguments:
   - psi=1
+{{- end }}
