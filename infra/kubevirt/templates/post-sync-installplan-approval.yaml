@@ -1,0 +1,51 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: installplan-approval-job
+  namespace: default
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: installplan-approval-job
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: installplan-approval-job
+  namespace: default
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: installplan-approval-job
+  namespace: default
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      serviceAccountName: installplan-approval-job
+      containers:
+      - name: installplan-approval-job
+        image: image-registry.openshift-image-registry.svc:5000/openshift/cli
+        command:
+        - /bin/sh
+        - -c
+        - |
+          echo "######################"
+          echo "# Patch the install plan to approve the CNV install"
+          echo "######################"
+
+          installplan=`oc get installplan -o go-template='{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'`
+          
+          oc patch installplan $installplan -n openshift-cnv \
+          --type merge --patch '{"spec":{"approved":true}}'
