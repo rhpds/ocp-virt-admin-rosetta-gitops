@@ -6,14 +6,12 @@ metadata:
   name: kubevirt-hyperconverged
   namespace: openshift-cnv
 spec:
-  channel: stable
-  installPlanApproval: Automatic
+  channel: candidate
+  installPlanApproval: Manual
   name: kubevirt-hyperconverged
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-{{- if .Values.kubevirt.startingCSV }}
-  startingCSV: {{ .Values.kubevirt.startingCSV }}
-{{- end }}
+  startingCSV: kubevirt-hyperconverged-operator.v4.20.3
 {{- if .Values.kubevirt.config }}
 {{ .Values.kubevirt.config | indent 2 }}
   config:
