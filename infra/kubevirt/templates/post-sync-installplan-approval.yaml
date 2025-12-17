@@ -46,4 +46,4 @@ spec:
           echo "######################"
 
           oc patch installplan $(oc get installplan -n openshift-cnv \
-          -o go-template='{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}') -n openshift-cnv --type merge --patch '{"spec":{"approved":true}}'
+          -o go-template='{{range .items}}{{.metadata.name}}{{end}}') -n openshift-cnv --type merge --patch '{"spec":{"approved":true}}'
