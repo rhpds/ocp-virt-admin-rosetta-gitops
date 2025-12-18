@@ -49,4 +49,3 @@ spec:
           echo "######################"
 
           oc patch scheduler cluster --type merge -p '{"spec":{"mastersSchedulable":false}}'
-
