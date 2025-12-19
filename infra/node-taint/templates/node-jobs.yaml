@@ -45,3 +45,26 @@ spec:
           echo "# taint the master node"
           echo "######################"
           oc adm taint node -l node-role.kubernetes.io/master key=virtualization:NoSchedule
+
+          echo "######################"
+          echo "# fix ceph-operator-config configmap, should fix noobaa"
+          echo "######################"
+          # If I delete first sometimes there's race conditions.
+          # oc delete configmap rook-ceph-operator-config -n openshift-storage
+          echo "oc apply to fix ceph-operator-config configmap"
+          cat <<EOF | oc apply -f -
+          kind: ConfigMap
+          apiVersion: v1
+          metadata:
+            name: rook-ceph-operator-config
+            namespace: openshift-storage
+          data:
+            CSI_PLUGIN_TOLERATIONS: |-
+              - key: key
+                operator: Equal
+                value: "virtualization"
+                effect: NoSchedule
+          EOF
+          # delete rook operator pods to bump the movement of the infranodes.
+          # but will have to find the name of the rook operator pod
+          oc delete -n openshift-storage pod -l app=rook-ceph-operator
