@@ -33,7 +33,7 @@ spec:
   template:
     spec:
       restartPolicy: Never
-      serviceAccountname: node-master-taint-job
+      serviceAccountName: node-master-taint-job
       containers:
       - name: node-master-taint-patch
         image: image-registry.openshift-image-registry.svc:5000/openshift/cli
