@@ -32,10 +32,7 @@ spec:
     spec:
       domain:
         cpu:
-          model: EPYC
-          cores: 1
-          sockets: 1
-          threads: 1    
+          model: EPYC    
         devices:
           autoattachPodInterface: false
           disks:
