@@ -42,7 +42,6 @@ spec:
       architecture: amd64
       domain:
         cpu:
-          model: EPYC
           cores: 16
           sockets: 2
           threads: 1

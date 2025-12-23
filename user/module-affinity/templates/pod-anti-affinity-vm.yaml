@@ -31,8 +31,6 @@ spec:
         network.kubevirt.io/headlessService: headless
     spec:
       domain:
-        cpu:
-          model: EPYC    
         devices:
           autoattachPodInterface: false
           disks:
