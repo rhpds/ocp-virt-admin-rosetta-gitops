@@ -15,6 +15,9 @@ spec:
     devEnableSoftTainter: true
     devDeviationThresholds: AsymmetricLow
     devActualUtilizationProfile: PrometheusCPUCombined
+    namespaces:
+      excluded:
+      - dynamic-schedule-stress-test
   profiles:
     - KubeVirtRelieveAndMigrate
   # This is the interval at which the descheduler will run ; Set a lower value for testing purposes :
