@@ -30,6 +30,13 @@ spec:
       labels:
         network.kubevirt.io/headlessService: headless
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-role.kubernetes.io/control-plane
+                    operator: DoesNotExist
       domain:
         devices:
           autoattachPodInterface: false
