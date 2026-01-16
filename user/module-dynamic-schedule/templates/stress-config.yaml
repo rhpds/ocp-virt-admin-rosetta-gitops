@@ -7,8 +7,8 @@ metadata:
     argocd.argoproj.io/sync-wave: "3"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 data:
-  CPU_LOAD: "8"
-  MEM_LOAD: "4"
+  CPU_LOAD: "3"
+  MEM_LOAD: "2"
   MEM_SIZE: "512M"
 
 
