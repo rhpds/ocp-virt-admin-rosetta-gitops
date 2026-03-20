@@ -14,7 +14,7 @@ spec:
   name: kubevirt-hyperconverged
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: kubevirt-hyperconverged-operator.v4.20.7
+  startingCSV: kubevirt-hyperconverged-operator.v4.20.8
 {{- if .Values.kubevirt.config }}
 {{ .Values.kubevirt.config | indent 2 }}
   config:
